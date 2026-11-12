@@ -15,7 +15,7 @@ When a Claude Code turn runs longer than 10 seconds, a pane opens beside the con
 
 **Watch the full demo (1 min):** U-Bahn TV in Claude Code in the terminal and in the Desktop app
 
-https://github.com/user-attachments/assets/96883513-06c4-486a-bc7e-d26870f9b5e9
+https://github.com/user-attachments/assets/5cc57c83-2ada-418f-ba53-3bc87fca84dc
 
 In Claude Code:
 
