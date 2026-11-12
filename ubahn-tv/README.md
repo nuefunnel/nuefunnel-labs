@@ -43,7 +43,7 @@ Close the pane with its ✕, or with Ctrl+X then X.
 
 ## Settings
 
-Set these in the dialog that `/plugin install` opens, later with `/plugin configure ubahn-tv@nuefunnel-labs`, or as rows in `/config`.
+Set these in the dialog that `/plugin install` opens, later with `/plugin configure ubahn-tv@nuefunnel-labs`, or as rows in `/config`. Leave a field blank to use its default: the install dialog doesn't show the defaults, so they're listed here.
 
 | Setting | Default | Meaning |
 | :- | :- | :- |

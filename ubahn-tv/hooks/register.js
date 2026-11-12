@@ -494,14 +494,22 @@ async function statusText() {
     .join('\n')
 }
 
+// A setting left blank, or one that isn't a number, gets its default
+const numberOr = (value, fallback) => {
+  const n = value === '' || value === null || value === undefined ? NaN : Number(value)
+  return Number.isFinite(n) ? n : fallback
+}
+
 export function register(on, options = {}) {
-  feedUrls = parseFeedList(options.feeds ?? DEFAULT_FEEDS)
+  // A blank feeds setting, or one with no web address in it, plays the default feeds
+  const chosen = parseFeedList(options.feeds)
+  feedUrls = chosen.length ? chosen : parseFeedList(DEFAULT_FEEDS)
   feedsKey = hashKey(feedUrls.join('\n'))
   theme = themeFor(feedUrls)
   words = WORDS[theme.lang] ?? WORDS.en
-  delayMs = Math.max(0, Number(options.auto_open_delay_seconds ?? 10)) * 1000
-  fps = Math.min(30, Math.max(4, Number(options.fps ?? 12)))
-  stillsFps = Math.min(MAX_STILLS_FPS, Math.max(1, Math.round(Number(options.desktop_fps ?? 10))))
+  delayMs = Math.max(0, numberOr(options.auto_open_delay_seconds, 10)) * 1000
+  fps = Math.min(30, Math.max(4, numberOr(options.fps, 12)))
+  stillsFps = Math.min(MAX_STILLS_FPS, Math.max(1, Math.round(numberOr(options.desktop_fps, 10))))
   timing = TIMINGS.includes(options.timing) ? options.timing : 'hybrid'
   isVerbose = options.verbose_log === true
 

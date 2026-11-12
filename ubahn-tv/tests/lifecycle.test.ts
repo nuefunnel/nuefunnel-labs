@@ -119,6 +119,22 @@ test('/ubahn status describes the setup', { options: { feeds: REGIOFOKUS } }, as
   expect(answer.text).toMatch(/timing=hybrid/)
 })
 
+for (const feeds of ['', '   ', 'not a web address']) {
+  test(`a feeds setting of ${JSON.stringify(feeds)} plays the default feeds`, { options: { feeds } }, async ($, on) => {
+    const { clock } = stubSession(on)
+    await startSession($, clock)
+    const answer = await $.command.run({ command: 'ubahn', args: 'status' })
+    expect(answer.text).toMatch(/^U-Bahn TV · 2 feeds · theme neutral\n  https:\/\/podsumo\.io\/mrss\/\S+\n/)
+  })
+}
+
+test('blank number settings get their defaults', { options: { fps: '', auto_open_delay_seconds: '', desktop_fps: '' } }, async ($, on) => {
+  const { clock } = stubSession(on)
+  await startSession($, clock)
+  const answer = await $.command.run({ command: 'ubahn', args: 'status' })
+  expect(answer.text).toMatch(/fps=12 delay=10s/)
+})
+
 test('by default Podsumo and the Nuremberg U-Bahn play mixed, in neutral English', async ($, on) => {
   const { clock } = stubSession(on)
   await startSession($, clock)
