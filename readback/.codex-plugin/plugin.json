@@ -1,0 +1,34 @@
+{
+  "name": "readback",
+  "version": "0.3.0",
+  "description": "A NetNewsWire-style RSS reader inside the ChatGPT desktop app. Select a passage and talk about it.",
+  "author": { "name": "NueFunnel", "url": "https://www.nuefunnel.com" },
+  "homepage": "https://github.com/nuefunnel/nuefunnel-labs/tree/main/readback",
+  "repository": "https://github.com/nuefunnel/nuefunnel-labs",
+  "license": "MIT",
+  "keywords": ["rss", "feeds", "reader", "opml", "netnewswire", "mcp-app"],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Readback",
+    "shortDescription": "Read your RSS feeds and talk about them",
+    "longDescription": "Readback is a three-pane RSS reader in the ChatGPT side panel, modelled on NetNewsWire. Import your OPML, read in full screen, and select any passage to ask about it in the chat beside it. Everything runs and stays on your Mac: feeds are fetched while the app is open, and your subscriptions and read status live in a local file.",
+    "developerName": "NueFunnel Labs",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read"],
+    "websiteURL": "https://github.com/nuefunnel/nuefunnel-labs/tree/main/readback",
+    "defaultPrompt": [
+      "Open Readback",
+      "What's new in my feeds today?",
+      "Import my OPML from ~/Downloads/Subscriptions.opml"
+    ],
+    "brandColor": "#17304d",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.png",
+    "screenshots": [
+      "./assets/screenshots/1-reader.png",
+      "./assets/screenshots/2-select.png",
+      "./assets/screenshots/3-ask.png",
+      "./assets/screenshots/4-whats-new.png"
+    ]
+  }
+}

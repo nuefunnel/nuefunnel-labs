@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "readback": {
+      "command": "node",
+      "args": ["--no-warnings", "./launch.mjs"],
+      "cwd": "."
+    }
+  }
+}

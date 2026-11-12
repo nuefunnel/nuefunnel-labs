@@ -1,0 +1,4 @@
+{
+  "description": "U-Bahn TV: plays the regiofokus clip rotation in a pane during long turns",
+  "modules": ["./register.js"]
+}

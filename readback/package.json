@@ -1,0 +1,29 @@
+{
+  "name": "readback",
+  "version": "0.3.0",
+  "private": true,
+  "description": "A NetNewsWire-style RSS reader inside the ChatGPT desktop app. Select a passage and talk about it.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --no-warnings --test tests/*.test.ts",
+    "check": "tsc --noEmit",
+    "preview": "node scripts/dev-host.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.7.5",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "feedsmith": "^3.0.1",
+    "linkedom": "^0.18.15",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3"
+  }
+}

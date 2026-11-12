@@ -1,0 +1,14 @@
+{
+  "name": "nuefunnel-labs",
+  "description": "Experimental Claude Code mods from NueFunnel Labs",
+  "owner": { "name": "NueFunnel", "url": "https://www.nuefunnel.com" },
+  "plugins": [
+    {
+      "name": "ubahn-tv",
+      "source": "./ubahn-tv",
+      "description": "Passenger TV in a side pane while Claude works: Podsumo episode cards and Nuremberg's U-Bahn by default, or any Media RSS feeds",
+      "category": "fun",
+      "tags": ["mod", "pane", "video"]
+    }
+  ]
+}

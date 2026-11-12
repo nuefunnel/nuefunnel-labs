@@ -1,0 +1,56 @@
+{
+  "name": "ubahn-tv",
+  "displayName": "U-Bahn TV",
+  "version": "2.2.1",
+  "description": "Passenger TV in a side pane while Claude works: Podsumo episode cards and Nuremberg's U-Bahn (regiofokus.de) by default, or any Media RSS feeds",
+  "author": { "name": "NueFunnel", "url": "https://www.nuefunnel.com" },
+  "homepage": "https://github.com/nuefunnel/nuefunnel-labs/tree/main/ubahn-tv",
+  "repository": "https://github.com/nuefunnel/nuefunnel-labs",
+  "license": "MIT",
+  "keywords": ["mod", "pane", "video", "nuremberg", "waiting", "mrss", "feeds"],
+  "userConfig": {
+    "feeds": {
+      "type": "string",
+      "title": "Feeds",
+      "description": "Feed URLs to play, mixed into one loop, separated by spaces or commas: regiofokus.de playlist.json addresses or Media RSS feeds",
+      "default": "https://podsumo.io/mrss/_IMSyPwN0vwnkpQH-69kKw https://regiofokus.de/content/NBG_MET/playlist.json"
+    },
+    "auto_open_delay_seconds": {
+      "type": "number",
+      "title": "Auto-open delay (seconds)",
+      "description": "How long a turn runs before the pane opens by itself; 0 opens it at once",
+      "min": 0,
+      "max": 300,
+      "default": 10
+    },
+    "fps": {
+      "type": "number",
+      "title": "Frames per second",
+      "description": "Playback frame rate; higher is smoother and uses more disk for decoded frames",
+      "min": 4,
+      "max": 30,
+      "default": 12
+    },
+    "desktop_fps": {
+      "type": "number",
+      "title": "Desktop stills per second",
+      "description": "The Desktop app shows stills instead of video; more per second is smoother and sends more data per second",
+      "min": 1,
+      "max": 10,
+      "default": 10
+    },
+    "timing": {
+      "type": "string",
+      "title": "Timing",
+      "description": "hybrid: smooth, catches up when a busy turn delays it; ticks: one frame per timer tick; wall: exact clock, may skip frames",
+      "options": ["hybrid", "ticks", "wall"],
+      "default": "hybrid"
+    },
+    "verbose_log": {
+      "type": "boolean",
+      "title": "Verbose debug log",
+      "description": "Log every tick and frame to the debug log (claude --debug-file <path>)",
+      "default": false
+    }
+  }
+}

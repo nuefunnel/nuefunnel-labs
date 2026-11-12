@@ -1,0 +1,12 @@
+{
+  "name": "nuefunnel-labs",
+  "interface": { "displayName": "NueFunnel Labs" },
+  "plugins": [
+    {
+      "name": "readback",
+      "source": { "source": "local", "path": "./readback" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}
