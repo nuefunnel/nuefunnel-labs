@@ -1,6 +1,6 @@
 {
   "name": "readback",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "A NetNewsWire-style RSS reader inside the ChatGPT desktop app. Select a passage and talk about it.",
   "type": "module",
