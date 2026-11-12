@@ -1,0 +1,35 @@
+# ChatGPT installs Readback as committed and never builds it: the server it runs is readback/dist/.
+# This fails when a change to Readback's code was committed without rebuilding dist/.
+name: Readback build is up to date
+
+on:
+  push:
+    paths: ["readback/**", ".github/workflows/readback-build.yml"]
+  pull_request:
+    paths: ["readback/**", ".github/workflows/readback-build.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  dist:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: readback
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: readback/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - name: Check dist/ matches the fresh build
+        run: |
+          if ! git diff --quiet -- dist; then
+            git diff --stat -- dist
+            echo "::error::readback/dist/ is out of date. Run 'npm run build' in readback/ and commit dist/."
+            exit 1
+          fi

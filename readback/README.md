@@ -111,7 +111,7 @@ npm test
 npm run preview   # the reader in a browser at http://localhost:8799, using a copy of your data
 ```
 
-The app starts `launch.mjs`, which checks the Node version and then loads `dist/server.mjs`.
+The app starts `launch.mjs`, which checks the Node version and then loads `dist/server.mjs`. Because the app runs `dist/` as committed, always build before committing a change to `src/`; a GitHub check fails when `dist/` doesn't match a fresh build.
 
 To release a new version, change `version` in both `package.json` and `.codex-plugin/plugin.json`, then build. The build writes the version into the server and stops if the two files disagree.
 
